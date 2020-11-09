@@ -7,13 +7,13 @@ usage: python3 subdivide_animate.py [-h] [-a A] [-d D] [-v V] mesh_file
 
 positional arguments:
 
-  mesh_file   an .off or .obj mesh file to subdivide
+    mesh_file   an .off or .obj mesh file to subdivide
 
 optional arguments:
 
-  -h, --help  show this help message and exit
+    -h, --help  show this help message and exit
   
-  -a A        subdivision algorithm to visualize
+    -a A        subdivision algorithm to visualize
   
               	Subdivision algorithms:
                 
@@ -21,7 +21,7 @@ optional arguments:
                   
               		2: Doo-Sabin
                   
-  -d D        number of subdivisions to animate
+    -d D        number of subdivisions to animate
   
-  -v V        video file to output animation to
+    -v V        video file to output animation to
   
