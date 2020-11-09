@@ -253,8 +253,8 @@ for poly in polys:
 
 #configure vtk window
 
-width = 1800
-height = 1800
+width = 1080
+height = 1080
 
 renderer = vtk.vtkRenderer()
 render_window = vtk.vtkRenderWindow()
