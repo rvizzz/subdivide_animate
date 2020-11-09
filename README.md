@@ -5,6 +5,8 @@ Currently supports Catmull-Clark and Doo-Sabin subdivisions
 
 usage: python3 subdivide_animate.py [-h] [-a A] [-d D] [-v V] mesh_file
 
+example: python3 subdivide_animate.py -a 1 -d 2 -v cube_animation.mp4 data/cube.off
+
 positional arguments:
 
     mesh_file   an .off or .obj mesh file to subdivide
