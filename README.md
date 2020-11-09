@@ -15,7 +15,7 @@ optional arguments:
 
     -h, --help  show this help message and exit
   
-    -a A        subdivision algorithm to visualize
+    -a [1, 2]        subdivision algorithm to visualize
   
               	Subdivision algorithms:
                 
