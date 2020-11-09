@@ -1,6 +1,8 @@
 # subdivide_animate
 Create animations of subdivision surface algorithms
 
+Example: https://twitter.com/r_vizzz/status/1325839951431405568
+
 Currently supports Catmull-Clark and Doo-Sabin subdivisions
 
 usage: python3 subdivide_animate.py [-h] [-a A] [-d D] [-v V] mesh_file
