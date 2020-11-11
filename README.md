@@ -1,9 +1,17 @@
 # subdivide_animate
-Create animations of subdivision surface algorithms
+Create 2D or 3D animations of subdivision surface algorithms
+
+# 3D examples:
 
 Doo-Sabin example: https://twitter.com/r_vizzz/status/1326339990624858113
 
 Catmull-Clark example: https://twitter.com/r_vizzz/status/1325839951431405568
+
+# 2D example:
+
+Doo-Sabin example: https://twitter.com/r_vizzz/status/1326672844558917634
+
+# How to use:
 
 Currently supports Catmull-Clark and Doo-Sabin subdivisions
 
