@@ -9,7 +9,7 @@ Catmull-Clark example: https://twitter.com/r_vizzz/status/1325839951431405568
 
 # 2D example:
 
-Doo-Sabin example: https://twitter.com/r_vizzz/status/1326672844558917634
+Doo-Sabin example: https://twitter.com/r_vizzz/status/1326983763000254470
 
 # How to use:
 
