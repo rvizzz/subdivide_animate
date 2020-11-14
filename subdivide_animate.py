@@ -96,8 +96,8 @@ class animate_3d_callback():
             if self.out != None:
                 self.write_to_video_stream()
                 
-            if self.ticks == self.animate_intervals[-1] - 1:
-                self.out.release()
+                if self.ticks == self.animate_intervals[-1] - 1:
+                    self.out.release()
 
             if self.ticks < self.animate_intervals[-2]:
                 if self.ticks == self.animate_intervals[self.subdivision_count]:
