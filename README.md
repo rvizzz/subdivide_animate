@@ -15,7 +15,7 @@ Doo-Sabin example: https://twitter.com/r_vizzz/status/1326983763000254470
 
 # How to use:
 
-Currently supports Catmull-Clark and Doo-Sabin subdivisions
+Currently supports Catmull-Clark, Doo-Sabin, and Midedge subdivisions
 
 usage: python3 subdivide_animate.py [-h] [-a A] [-d D] [-v V] mesh_file
 
