@@ -9,6 +9,8 @@ Catmull-Clark example: https://twitter.com/r_vizzz/status/1325839951431405568
 
 # 2D example:
 
+Midedge example: https://twitter.com/r_vizzz/status/1328117443668176897
+
 Doo-Sabin example: https://twitter.com/r_vizzz/status/1326983763000254470
 
 # How to use:
@@ -27,13 +29,15 @@ optional arguments:
 
     -h, --help  show this help message and exit
   
-    -a [1, 2]        subdivision algorithm to visualize
+    -a [1, 2, 3]     subdivision algorithm to visualize
   
               	Subdivision algorithms:
                 
               		1: Catmull-Clark
                   
               		2: Doo-Sabin
+                    
+                    3: Midedge
                   
     -d D        number of subdivisions to animate
   
