@@ -93,7 +93,7 @@ class Mesh:
         return new_edge
             
     def add_vertex(self, p):
-        
+    
         pt = tuple(p.tolist())
         
         if pt in self.vertex_dict:
@@ -109,7 +109,107 @@ class Mesh:
         new_vertex.set_id(id)
         
         return new_vertex
-
+    
+    def compute_mid_edge_surface(self):
+    
+        me_mesh = Mesh()
+        
+        me_animate_mesh = MeshAnimate()
+        
+        for e in self.edges:
+            e.compute_mid_edge_point()
+            
+        for f in self.faces:
+        
+            poly = []
+            
+            for e in f.adj_edges:
+                poly.append(e.me_point)
+                
+            me_mesh.add_face_by_points(poly)
+             
+            point_pairs = []
+            
+            for i in range(len(f.adj_vertices)):
+            
+                e1_p = f.adj_edges[(i - 1) % len(f.adj_edges)].me_point
+                e2_p = f.adj_edges[i].me_point
+            
+                pp1 = [f.adj_vertices[i].coor, e1_p]
+                pp2 = [f.adj_vertices[i].coor, e2_p]
+                
+                point_pairs.append(pp1)
+                point_pairs.append(pp2)
+            
+            me_animate_mesh.add_face_by_points(point_pairs)
+            
+        for v in self.vertices:
+        
+            if len(v.adj_faces) < 1:
+                continue
+                
+            start_f = v.adj_faces[0]
+            f = start_f
+            
+            poly = []
+            point_pairs = []
+            
+            broke_on_boundary = False
+            
+            while True:
+        
+                index = f.adj_vertices.index(v)
+                index = (index - 1) % len(f.adj_vertices)
+                
+                e = f.adj_edges[index]
+                
+                poly.append(e.me_point)
+                point_pairs.append([v.coor, e.me_point])
+                
+                if len(e.adj_faces) < 2:
+                    broke_on_boundary = True
+                    break
+                
+                if e.adj_faces[0] == f:
+                    f = e.adj_faces[1]
+                else:
+                    f = e.adj_faces[0]
+            
+                if f == start_f:
+                    break
+            
+            if broke_on_boundary:
+                f = start_f
+                
+                while True:
+                
+                    index = f.adj_vertices.index(v)
+                    
+                    e = f.adj_edges[index]
+                    
+                    poly.insert(0, e.me_point)
+                    point_pairs.insert(0, [v.coor, e.me_point])
+                    
+                    if len(e.adj_faces) < 2:
+                        break
+                        
+                    if e.adj_faces[0] == f:
+                        f = e.adj_faces[1]
+                    else:
+                        f = e.adj_faces[0]
+                
+                    if f == start_f:
+                        break
+                        
+                poly.insert(0, v.coor)
+                point_pairs.insert(0, [v.coor, v.coor])
+            
+            me_mesh.add_face_by_points(poly)
+            me_animate_mesh.add_face_by_points(point_pairs)
+            
+        return (me_mesh, me_animate_mesh)
+        
+    
     def compute_catmull_clark_surface(self):
         
         cc_mesh = Mesh()
@@ -418,8 +518,13 @@ class Edge(TopoElement):
             
     def compute_doo_sabin_point(self):
         
-            self.ds_point = np.sum([v.coor for v in self.adj_vertices], axis = 0)
-            self.ds_point = self.ds_point / len(self.adj_vertices)
+        self.ds_point = np.sum([v.coor for v in self.adj_vertices], axis = 0)
+        self.ds_point = self.ds_point / len(self.adj_vertices)
+            
+    def compute_mid_edge_point(self):
+    
+        self.me_point = np.sum([v.coor for v in self.adj_vertices], axis = 0)
+        self.me_point = self.me_point / len(self.adj_vertices)
         
     
 

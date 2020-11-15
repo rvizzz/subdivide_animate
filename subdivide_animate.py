@@ -12,6 +12,7 @@ import mesh
 
 CATMULL_CLARK_ID = 1
 DOO_SABIN_ID = 2
+MID_EDGE_ID = 3
 
 def generate_polydata(surface_mesh):
 
@@ -109,6 +110,8 @@ class animate_3d_callback():
                         self.subdivide_mesh, self.subdivide_animate_mesh = self.subdivide_mesh.compute_catmull_clark_surface()
                     elif self.subdivision_method == DOO_SABIN_ID:
                         self.subdivide_mesh, self.subdivide_animate_mesh = self.subdivide_mesh.compute_doo_sabin_surface()
+                    elif self.subdivision_method == MID_EDGE_ID:
+                        self.subdivide_mesh, self.subdivide_animate_mesh = self.subdivide_mesh.compute_mid_edge_surface()
 
                     self.polydata = generate_polydata(self.subdivide_animate_mesh)
                     self.mapper = vtk.vtkPolyDataMapper()
@@ -274,6 +277,9 @@ def animate_2d(subdivide_mesh):
             subdivide_mesh, subdivide_animate = subdivide_mesh.compute_catmull_clark_surface()
         elif subdivision_method == DOO_SABIN_ID:
             subdivide_mesh, subdivide_animate = subdivide_mesh.compute_doo_sabin_surface()
+        elif subdivision_method == MID_EDGE_ID:
+            subdivide_mesh, subdivide_animate = subdivide_mesh.compute_mid_edge_surface()
+
 
         draw_steps = 50
 
@@ -344,10 +350,12 @@ if args.v:
 #output argument information
 print("Mesh file: " + filename)
 
-if subdivision_method == 1:
+if subdivision_method == CATMULL_CLARK_ID:
     print("Subdivision algorithm: Catmull-Clark")
-elif subdivision_method == 2:
+elif subdivision_method == DOO_SABIN_ID:
     print("Subdivision algorithm: Doo-Sabin")
+elif subdivision_method == MID_EDGE_ID:
+    print("Subdivision algorithm: Midedge")
 
 print("Number of subdivisions to be animated: " + str(subdivisions))
 
