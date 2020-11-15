@@ -7,7 +7,7 @@ Doo-Sabin example: https://twitter.com/r_vizzz/status/1326339990624858113
 
 Catmull-Clark example: https://twitter.com/r_vizzz/status/1325839951431405568
 
-# 2D example:
+# 2D examples:
 
 Midedge example: https://twitter.com/r_vizzz/status/1328117443668176897
 
