@@ -33,11 +33,11 @@ optional arguments:
   
               	Subdivision algorithms:
                 
-              		1: Catmull-Clark
-                  
-              		2: Doo-Sabin
-                    
-                    3: Midedge
+                        1: Catmull-Clark
+
+                        2: Doo-Sabin
+
+                        3: Midedge
                   
     -d D        number of subdivisions to animate
   
